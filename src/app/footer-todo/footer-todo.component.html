@@ -1,0 +1,4 @@
+<footer class="footer" *ngIf="footerTodo?.length > 0">
+  <span class="todo-count"><strong>{{footerTodo?.length}}</strong> {{footerTodo.length == 1 ? 'item' : 'items'}} left</span>
+  <button class="clear-completed" (click)="clearCompleted()">Clear completed</button>
+</footer>

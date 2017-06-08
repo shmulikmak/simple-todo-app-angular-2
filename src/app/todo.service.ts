@@ -1,10 +1,10 @@
-import {Injectable} from '@angular/core';
-import {Todo} from './todo';
+import { Injectable } from '@angular/core';
+import { Todo } from './todo';
 
 @Injectable()
 export class TodoService {
 
-  lastId: number = 0;   //flag for incrementing the lists number
+  lastId = 0;   // flag for increment the lists number
   todos: Todo[] = [];
 
   constructor() {
@@ -15,6 +15,7 @@ export class TodoService {
       todo.id = ++this.lastId;
     }
     this.todos.push(todo);
+    console.log(this.getAllTodos());
     return this;
   }
 
@@ -25,7 +26,7 @@ export class TodoService {
   }
 
   updateTodoById(id: number, values: Object = {}): Todo {
-    let todo = this.getTodoById(id);
+    const todo = this.getTodoById(id);
     if (!todo) {
       return null;
     }
@@ -34,6 +35,7 @@ export class TodoService {
   }
 
   getAllTodos(): Todo[] {
+    // console.log( this.todos);
     return this.todos;
   }
 
@@ -43,14 +45,14 @@ export class TodoService {
       .pop();
   }
 
-  toggleTodoComplete(todo: Todo){
-    let updatedTodo = this.updateTodoById(todo.id, {
+  toggleTodoComplete(todo: Todo) {
+    const updatedTodo = this.updateTodoById(todo.id, {
       complete: !todo.complete
     });
     return updatedTodo;
   }
 
-  deleteCompleted(){
+  deleteCompleted() {
     this.todos = [];
   }
 
