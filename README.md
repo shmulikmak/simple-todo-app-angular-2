@@ -1,6 +1,7 @@
 # simple-todo-app-angular-2
 
-The ToDo style taken from https://www.npmjs.com/package/todomvc-app-css
+The ToDo style taken from https://www.npmjs.com/package/todomvc-app-css 
+
 Live demo in Firebase - https://todo-angular-2.firebaseapp.com/
 ## Development server
 
