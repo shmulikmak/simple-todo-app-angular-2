@@ -14,8 +14,9 @@ export class TodoService {
     if (!todo.id) {
       todo.id = ++this.lastId;
     }
-    this.todos.push(todo);
-    console.log(this.getAllTodos());
+    if (todo.title !== '') {
+      this.todos.push(todo);
+    }
     return this;
   }
 
@@ -35,7 +36,6 @@ export class TodoService {
   }
 
   getAllTodos(): Todo[] {
-    // console.log( this.todos);
     return this.todos;
   }
 
@@ -53,7 +53,7 @@ export class TodoService {
   }
 
   deleteCompleted() {
-    this.todos = [];
+    this.todos = this.todos.filter(todo => todo.complete === false);
   }
 
 }
