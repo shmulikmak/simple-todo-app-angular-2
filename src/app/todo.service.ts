@@ -1,10 +1,10 @@
 import { Injectable } from '@angular/core';
-import { Todo } from './todo';
+import { Todo } from './todo'; // simulate server to keep the lists
 
 @Injectable()
 export class TodoService {
 
-  lastId = 0;   // flag for increment the lists number
+  lastId = 0;   // flag for increment the id\lists number
   todos: Todo[] = [];
 
   constructor() {
@@ -14,7 +14,7 @@ export class TodoService {
     if (!todo.id) {
       todo.id = ++this.lastId;
     }
-    if (todo.title !== '') {
+    if (todo.title) {
       this.todos.push(todo);
     }
     return this;
